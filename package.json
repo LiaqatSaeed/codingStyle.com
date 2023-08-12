@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "commit": "npx cz"
   },
   "dependencies": {
     "@types/node": "20.4.9",
@@ -25,5 +26,8 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "devDependencies": {
+    "changesets": "^1.0.2"
   }
 }
