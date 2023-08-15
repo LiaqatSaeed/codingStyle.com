@@ -2,10 +2,10 @@
 
 import { CustomForm, InputField } from "@/components";
 import { LoginSchema } from "./validation.schema";
-
+import styles from "./login.module.css";
 export default function Page() {
   return (
-    <div className="login-form">
+    <div className={styles.login_form}>
       <h1>Hello, Login Page!</h1>
       <CustomForm
         onSubmit={(values: any) => {

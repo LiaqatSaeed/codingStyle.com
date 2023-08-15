@@ -1,5 +1,6 @@
 import React from "react";
 import { Formik, Form, FormikProps } from "formik";
+import styles from "./custom-form.module.css";
 
 interface CustomFormProps {
   onSubmit(values: any): void | Promise<any>;
@@ -16,6 +17,8 @@ export const CustomForm: React.FC<CustomFormProps> = ({
   submitButtonLabel = "Submit",
   validationSchema,
 }: CustomFormProps) => {
+  const onCancel = () => [(window.location.href = "/")];
+
   return (
     <Formik
       validateOnChange={false}
@@ -24,9 +27,12 @@ export const CustomForm: React.FC<CustomFormProps> = ({
       validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
-      <Form>
+      <Form className={styles.form}>
         {children}
-        <button type="submit">{submitButtonLabel}</button>
+        <div className={styles.button_group}>
+          <button className={styles.button} onClick={onCancel}>Cancel</button>
+          <button className={styles.button} type="submit">{submitButtonLabel}</button>
+        </div>
       </Form>
     </Formik>
   );
